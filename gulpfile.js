@@ -5,7 +5,8 @@ const sass = require('gulp-sass');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-
+const maps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
 
 gulp.task('serve', () => {
 
@@ -38,6 +39,9 @@ gulp.task('js', () => {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
+    .pipe(maps.init({loadMaps: true}))
+    .pipe(uglify())
+    .pipe(maps.write('.dist/js'))
     .pipe(gulp.dest('./dist/js'))
     .pipe(browserSync.stream());
 });

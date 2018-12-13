@@ -9,6 +9,7 @@ This is a starting point for any web application. You can build up your stack fr
 - Gulp-sass
 - Babel ES6 transpiler
 - Source-maps
+- Uglify
 - A straightfoward front-end app structure
 
 Feel free to include your own tools, frameworks, etc.
